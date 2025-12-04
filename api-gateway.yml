@@ -4,12 +4,12 @@ server:
 spring:
   application:
     name: api-gateway
-
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id: product-service
-            uri: lb://PRODUCT-SERVICE
-            predicates:
-              - Path=/products/api/**
+      server:
+        webflux:
+          routes:
+            - id: product-service
+              uri: lb://PRODUCT-SERVICE
+              predicates:
+                - Path=/products/api/**
