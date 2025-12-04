@@ -1,6 +1,14 @@
+server:
+  port: 8080
 spring:
   application:
     name: api-gateway
-
-server:
-  port: 8080
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: product-service
+              uri: lb://PRODUCT-SERVICE
+              predicates:
+                - Path=/products/api/**
