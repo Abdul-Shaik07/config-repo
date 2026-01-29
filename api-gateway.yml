@@ -2,7 +2,7 @@ server:
   port: 8080
 
 jwt:
-  secret: 6d4217192951e97f82b3db4e527346806bc7b9a5b5cb455728219cc618d2cc89
+  secret: 5fOpI7BI5exdHip6gKaFGQX4q6PAOoUki02tJYRPNwA=
 
 
 spring:
