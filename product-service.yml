@@ -3,12 +3,20 @@ server:
 spring:
   application:
     name: product-service
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/products_db
-    username: root
-    password: root
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+    datasource:
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/start_ahb_workshop
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+
+  jwt:
+    secret: hiXrZjUrAtckOkPfaybT2CZ5+q2rF/h+X3AVXc9+vFQ=
+    expiration: 1800000
