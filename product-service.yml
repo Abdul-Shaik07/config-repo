@@ -1,22 +1,43 @@
 server:
-  port: 8082
+  port: 8080
+
+
+#jwt:
+#  secret: 5fOpI7BI5exdHip6gKaFGQX4q6PAOoUki02tJYRPNwA=
+
+
+
 spring:
   application:
-    name: product-service
-  data:
-    redis:
-      host: localhost
-      port: 6379
-    datasource:
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/start_ahb_workshop
-    jpa:
-      hibernate:
-        ddl-auto: update
-      show-sql: true
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            # ---------------- AUTH SERVICE ----------------
+#            - id: auth-service
+#              uri: lb://AUTH-SERVICE
+#              predicates:
+#                - Path=/auth/api/**
 
-  jwt:
-    secret: hiXrZjUrAtckOkPfaybT2CZ5+q2rF/h+X3AVXc9+vFQ=
-    expiration: 1800000
+            # ---------------- PRODUCT SERVICE ----------------
+            - id: product-service
+              uri: lb://PRODUCT-SERVICE
+              predicates:
+                - Path=/products/api/**
+
+            # ---------------- CART SERVICE ----------------
+            - id: cart-service
+              uri: lb://CART-SERVICE
+              predicates:
+                  - Path=/cart/api/**
+
+            # ---------------- ORDER SERVICE ----------------
+            - id: order-service
+              uri: lb://ORDER-SERVICE
+              predicates:
+                  - Path=/order/api/**
+
+
+
