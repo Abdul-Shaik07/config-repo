@@ -1,8 +1,8 @@
 server:
   port: 8080
 
-jwt:
-  secret: 5fOpI7BI5exdHip6gKaFGQX4q6PAOoUki02tJYRPNwA=
+# jwt:
+# secret: 5fOpI7BI5exdHip6gKaFGQX4q6PAOoUki02tJYRPNwA=
 
 
 spring:
