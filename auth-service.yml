@@ -15,5 +15,5 @@ server:
   port: 8081
 
 jwt:
-  secret: 5fOpI7BI5exdHip6gKaFGQX4q6PAOoUki02tJYRPNwA=
+  secret: ${JWT_SECRET}
 
