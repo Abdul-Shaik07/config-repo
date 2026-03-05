@@ -14,10 +14,10 @@ spring:
         webflux:
           routes:
             # ---------------- AUTH SERVICE ----------------
-           - id: auth-service
-             uri: lb://AUTH-SERVICE
-             predicates:
-               - Path=/auth/api/**
+            - id: auth-service
+              uri: lb://AUTH-SERVICE
+              predicates:
+                - Path=/auth/api/**
             # ---------------- PRODUCT SERVICE ----------------
             - id: product-service
               uri: lb://PRODUCT-SERVICE
