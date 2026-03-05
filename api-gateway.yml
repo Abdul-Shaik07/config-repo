@@ -35,3 +35,9 @@ spring:
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/order/api/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
