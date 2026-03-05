@@ -1,8 +1,8 @@
 server:
   port: 8080
 
-# jwt:
-# secret: 5fOpI7BI5exdHip6gKaFGQX4q6PAOoUki02tJYRPNwA=
+jwt:
+secret: ${JWT_SECRET}
 
 
 spring:
@@ -14,10 +14,10 @@ spring:
         webflux:
           routes:
             # ---------------- AUTH SERVICE ----------------
-#            - id: auth-service
-#              uri: lb://AUTH-SERVICE
-#              predicates:
-#                - Path=/auth/api/**
+           - id: auth-service
+             uri: lb://AUTH-SERVICE
+             predicates:
+               - Path=/auth/api/**
             # ---------------- PRODUCT SERVICE ----------------
             - id: product-service
               uri: lb://PRODUCT-SERVICE
