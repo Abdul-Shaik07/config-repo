@@ -2,34 +2,36 @@ server:
   port: 8080
 
 jwt:
-secret: ${JWT_SECRET}
-
+  secret: ${JWT_SECRET}
 
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            # ---------------- AUTH SERVICE ----------------
-            - id: auth-service
-              uri: lb://AUTH-SERVICE
-              predicates:
-                - Path=/auth/api/**
-            # ---------------- PRODUCT SERVICE ----------------
-            - id: product-service
-              uri: lb://PRODUCT-SERVICE
-              predicates:
-                - Path=/products/api/**
-            # ---------------- CART SERVICE ----------------
-            - id: cart-service
-              uri: lb://CART-SERVICE
-              predicates:
-                - Path=/cart/api/**
-            # ---------------- ORDER SERVICE ----------------
-            - id: order-service
-              uri: lb://ORDER-SERVICE
-              predicates:
-                - Path=/order/api/**
+      routes:
+
+        # ---------------- AUTH SERVICE ----------------
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/api/**
+
+        # ---------------- PRODUCT SERVICE ----------------
+        - id: product-service
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/products/api/**
+
+        # ---------------- CART SERVICE ----------------
+        - id: cart-service
+          uri: lb://CART-SERVICE
+          predicates:
+            - Path=/cart/api/**
+
+        # ---------------- ORDER SERVICE ----------------
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/api/**
