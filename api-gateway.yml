@@ -7,8 +7,23 @@ jwt:
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
+
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+
       server:
         webflux:
           routes:
@@ -16,18 +31,21 @@ spring:
               uri: lb://AUTH-SERVICE
               predicates:
                 - Path=/auth/api/**
+
             - id: product-service
               uri: lb://PRODUCT-SERVICE
               predicates:
                 - Path=/products/api/**
+
             - id: cart-service
               uri: lb://CART-SERVICE
               predicates:
                 - Path=/cart/api/**
+
             - id: order-service
               uri: lb://ORDER-SERVICE
               predicates:
-                  - Path=/order/api/**
+                - Path=/order/api/**
 
 management:
   endpoints:
