@@ -4,7 +4,7 @@ server:
 resilience4j:
   circuitbreaker:
     instances:
-      cartService:
+      orderService:
         failureRateThreshold: 50
         slidingWindowSize: 5
         waitDurationInOpenState: 10s
