@@ -9,13 +9,19 @@ resilience4j:
         failureRateThreshold: 50
         slidingWindowSize: 5
         waitDurationInOpenState: 10s
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    prefer-ip-address: true
 
 spring:
   application:
     name: order-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/orders_db
+    url: jdbc:mysql://mysql:3306/orders_db
     username: root
     password: root
   jpa:
@@ -26,7 +32,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
