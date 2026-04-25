@@ -1,1 +1,14 @@
-
+server:
+  port: 8087
+spring:
+  application:
+    name: AddressService
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/address_db
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
