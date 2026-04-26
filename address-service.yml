@@ -2,7 +2,7 @@ server:
   port: 8087
 spring:
   application:
-    name: AddressService
+    name: address-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql:3306/address_db
